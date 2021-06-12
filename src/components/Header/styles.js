@@ -9,26 +9,6 @@ export const Container = styled.header`
     padding: 0 20px 0 40px;
     font-family: 'Ubuntu';
 
-    .left {
-        height: 100%;
-    }
-
-    button {
-        background: none;
-        border: none;
-        padding: 30px;
-        height: 100%;
-    }
-
-    button ~ button {
-        margin-left: 10px;
-    }
-
-    button:hover {
-        /* background: #ffd32b; */
-        /* filter: brightness(10%); */
-    }
-
     .right {
         height: inherit;
         display: flex;
@@ -38,5 +18,33 @@ export const Container = styled.header`
 
     .logo {
         height: 80%;
+    }
+
+    .left {
+        height: 100%;
+    }
+
+    button {
+        background: none;
+        border: none;
+    }
+
+    .navigate-button {
+        color: #1f8fff;
+        letter-spacing: 2px;
+        padding: 30px;
+        height: 100%;
+    }
+
+    button ~ button {
+        margin-left: 10px;
+    }
+
+    button:hover {
+    }
+
+    .logout-button {
+        vertical-align: middle;
+        margin-right: 10px;
     }
 `;
