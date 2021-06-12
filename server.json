@@ -1,0 +1,29 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "name": "João",
+            "email": "jpgomes@id.uff.br",
+            "password": "password"
+        }
+    ],
+    "pet": [
+        {
+            "id": 1,
+            "owner-id": 1,
+            "name": "Caramelo",
+            "age": 10,
+            "breed": "SRD",
+            "img": "http://image.com"
+        }
+    ],
+    "appointment": [
+        {
+            "id": 1,
+            "owner-id": 1,
+            "name": "Caramelo",
+            "service": "banho",
+            "date": "dia D"
+        }
+    ]
+}
