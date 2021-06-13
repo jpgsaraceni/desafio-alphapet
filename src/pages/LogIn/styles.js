@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     height: 100vh;
-    font-family: 'Ubuntu';
 
     button {
         background: none;
@@ -32,58 +31,11 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-
-    .login-box {
-        align-self: center;
-        align-items: center;
-        justify-self: center;
-        display: flex;
-        flex-direction: column;
-        max-width: 50vw;
-        /* max-width: 400px; */
-        margin-bottom: 20px;
-        background: #fff;
-        border-radius: 5px;
-        padding: 22px 37px 44px 37px;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .title {
-        font-size: 58px;
-        text-align: center;
-        margin-bottom: 30px;
-        color: #1f8fff;
-    }
-
-    input {
-        display: flex;
-        width: 68%;
-        height: 86px;
-        padding-left: 20px;
-        font-size: 30px;
-        background: inherit;
-        border: 1px solid #b2d6ff;
-        box-sizing: border-box;
-    }
-
-    input ~ input {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    input::placeholder {
-        font-size: 30px;
-        color: #b2d6ff;
+        padding: 10%;
     }
 
     .forgot-password-text {
+        margin-top: 10px;
         font-size: 22px;
     }
 

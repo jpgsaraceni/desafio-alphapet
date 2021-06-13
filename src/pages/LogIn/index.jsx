@@ -17,6 +17,10 @@ function LogIn() {
         history.push(`signup`);
     }
 
+    function navigateToRecoverPassword() {
+        history.push(`recover`);
+    }
+
     return (
         <Container>
             <div className="left-side">
@@ -27,37 +31,36 @@ function LogIn() {
                 />
             </div>
             <div className="right-side">
-                <div className="login-box">
-                    <p className="title">Já possui cadastro?</p>
-                    <form>
-                        <input
-                            type="e-mail"
-                            placeholder="Digite seu e-mail"
-                        // ref={input => {
-                        //     input.focus();
-                        // }}
-                        // is crashing when logs out
-                        />
-                        <input type="password" placeholder="Digite sua senha" />
-                        <p className="forgot-password-text">
-                            Esqueceu sua senha? Clique
-                            <button
-                                className="forgot-password-btn"
-                                type="button"
-                            >
-                                aqui
-                            </button>
-                            .
-                        </p>
+                <form>
+                    <h1>Já possui cadastro?</h1>
+                    <input
+                        type="e-mail"
+                        placeholder="Digite seu e-mail"
+                    // ref={input => {
+                    //     input.focus();
+                    // }}
+                    // is crashing when logs out
+                    />
+                    <input type="password" placeholder="Digite sua senha" />
+                    <p className="forgot-password-text">
+                        Esqueceu sua senha? Clique
                         <button
-                            className="enter-btn"
-                            type="submit"
-                            onClick={() => navigateToHome()}
+                            className="forgot-password-btn"
+                            type="button"
+                            onClick={() => navigateToRecoverPassword()}
                         >
-                            Entrar
+                            aqui
                         </button>
-                    </form>
-                </div>
+                        .
+                    </p>
+                    <button
+                        className="enter-btn"
+                        type="submit"
+                        onClick={() => navigateToHome()}
+                    >
+                        Entrar
+                    </button>
+                </form>
                 <p className="sign-up-caption">
                     É novo aqui?
                     <button className="sign-up-btn" type="button" onClick={() => navigateToSignUp()}>

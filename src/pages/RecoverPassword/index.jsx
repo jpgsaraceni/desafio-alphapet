@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
 
-function SignUp() {
+function RecoverPassword() {
     const history = useHistory();
 
-    function navigateToHome() {
-        history.push(`/home`);
+    function navigateToRedefinePassword() {
+        history.push(`/redefine`);
     }
 
     function navigateToLogin() {
@@ -17,19 +17,16 @@ function SignUp() {
     return (
         <Container>
             <h1>
-                Seja bem-vindo(a) ao AlphaPet! Para começar, preencha todos os
-                campos abaixo.
+                Informe seu e-mail, e enviaremos uma senha temporária para que
+                redefina sua senha.
             </h1>
-            <input type="text" placeholder="Seu nome" />
-            <input type="e-mail" placeholder="E-mail" />
-            <input type="password" placeholder="Senha" />
-            <input type="password" placeholder="Confirmar senha" />
+            <input type="e-mail" placeholder="Email" />
             <button
                 type="submit"
                 className="enter-btn"
-                onClick={() => navigateToHome()}
+                onClick={() => navigateToRedefinePassword()}
             >
-                Cadastrar
+                Enviar senha
             </button>
             <button
                 type="button"
@@ -42,4 +39,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default RecoverPassword;
