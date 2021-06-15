@@ -18,6 +18,10 @@ export default createGlobalStyle`
         font: 400 16px sans-serif;
     }
 
+    h1, h2, h3, h4, p {
+        cursor: default;
+    }
+
     button {
         cursor: pointer;
         border: none;
@@ -63,5 +67,19 @@ export default createGlobalStyle`
     input::placeholder {
         font-size: 30px;
         color: #b2d6ff;
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 `;

@@ -4,10 +4,11 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
+    height: 20vh;
     background: #ffb32b;
     padding: 0 20px 0 40px;
     font-family: 'Ubuntu';
+    font-size: 30px;
 
     .right {
         height: inherit;

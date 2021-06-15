@@ -5,6 +5,7 @@ import { Container } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 import logout from '../../assets/images/logout.svg';
+// import { useNavigate } from '../../hooks/useNavigate';
 
 function Header() {
     // use props to change remove cursor: pointer when on the page the button takes to.
@@ -17,6 +18,11 @@ function Header() {
     function navigateToLogIn() {
         history.push(`/login`);
     }
+
+    function navigateToAppointments() {
+        history.push(`/appointments`);
+    }
+    // const navigateToLogIn = useNavigate();
 
     return (
         <Container>
@@ -34,7 +40,11 @@ function Header() {
                 </button>
             </div>
             <div className="left">
-                <button type="button" className="navigate-button">
+                <button
+                    type="button"
+                    className="navigate-button"
+                    onClick={() => navigateToAppointments()}
+                >
                     Meus agendamentos
                 </button>
                 <button type="button" className="navigate-button">

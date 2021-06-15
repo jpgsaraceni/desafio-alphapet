@@ -6,12 +6,10 @@ import Routes from './routes';
 
 function App() {
     return (
-        // <AppProvider>
-        <>
+        <AppProvider>
             <Routes />
             <GlobalStyle />
-        </>
-        // </AppProvider>
+        </AppProvider>
     );
 }
 
