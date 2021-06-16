@@ -38,7 +38,17 @@ export const Container = styled.div`
         color: #b2d6ff;
     }
 
-    span {
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .finished {
         margin: 5px auto;
         color: #1f8fff;
         font-weight: bolder;

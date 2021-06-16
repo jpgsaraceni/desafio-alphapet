@@ -1,9 +1,29 @@
-// import React from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React, { createContext } from 'react';
 
-// // import { Container } from './styles';
+export const UserContext = createContext({});
 
-// function UserProvider() {
-//     return <div />;
-// }
+// import { Container } from './styles';
 
-// export default UserProvider;
+export const UserProvider = props => {
+    const users = [
+        {
+            id: 1,
+            name: 'test',
+            password: 'password',
+            email: 'test@test.com',
+        },
+    ];
+
+    function addUser(user) {
+        users.push(user);
+    }
+
+    return (
+        <UserContext.Provider value={{ users, addUser }}>
+            {props.children}
+        </UserContext.Provider>
+    );
+};
+
+export default UserProvider;

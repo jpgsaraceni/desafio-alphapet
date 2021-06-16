@@ -1,17 +1,44 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { useUsers } from '../../hooks/useUsers';
 
 import { Container } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 
 function LogIn() {
+    const [email, setEmail] = useState();
+    const [noEmail, setNoEmail] = useState(false);
+    const [noPassword, setNoPassword] = useState(false);
+    const [password, setPassword] = useState();
+    const [showInvalidUserMessage, setShowInvalidUserMessage] = useState(false);
+    const { users } = useUsers();
+
     const history = useHistory();
 
-    function navigateToHome() {
-        history.push(`/home`);
-    }
+    const navigateToHome = useCallback(() => {
+        let validUsers = false;
+        users.forEach((user) => {
+            if (user.email === email) {
+                if (user.password === password) {
+                    validUsers = true;
+                }
+            }
+        })
+        if (email && password && validUsers) {
+            history.push(`/home`);
+        } if (!email) {
+            setNoEmail(true);
+        }
+        if (!password) {
+            setNoPassword(true);
+        }
+        if (email && password && !validUsers) {
+            setShowInvalidUserMessage(true);
+        }
+    }, [email, password, history, users])
 
     function navigateToSignUp() {
         history.push(`signup`);
@@ -36,12 +63,20 @@ function LogIn() {
                     <input
                         type="e-mail"
                         placeholder="Digite seu e-mail"
-                    // ref={input => {
-                    //     input.focus();
-                    // }}
-                    // is crashing when logs out
+                        onChange={event => {
+                            setNoEmail(false);
+                            setShowInvalidUserMessage(false);
+                            setEmail(event.target.value)
+                        }}
                     />
-                    <input type="password" placeholder="Digite sua senha" />
+                    {noEmail && <span>Informe seu e-mail!</span>}
+                    <input type="password" placeholder="Digite sua senha" onChange={event => {
+                        setNoPassword(false);
+                        setShowInvalidUserMessage(false);
+                        setPassword(event.target.value)
+                    }} />
+                    {noPassword && <span>Informe sua senha!</span>}
+                    {showInvalidUserMessage && <span>Usuário ou senha inválido!</span>}
                     <p className="forgot-password-text">
                         Esqueceu sua senha? Clique
                         <button
@@ -55,7 +90,7 @@ function LogIn() {
                     </p>
                     <button
                         className="enter-btn"
-                        type="submit"
+                        type="button"
                         onClick={() => navigateToHome()}
                     >
                         Entrar

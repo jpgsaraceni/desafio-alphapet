@@ -67,4 +67,8 @@ export const Container = styled.div`
         padding-left: 5px;
         font-size: 30px;
     }
+
+    span {
+        color: red;
+    }
 `;

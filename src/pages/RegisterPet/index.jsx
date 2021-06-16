@@ -8,6 +8,7 @@ import { usePets } from '../../hooks/usePets';
 function RegisterPet() {
     const [complete, setComplete] = useState();
     const [name, setName] = useState();
+    const [noName, setNoName] = useState(false);
     const [weight, setWeight] = useState();
     const [species, setSpecies] = useState();
     const [age, setAge] = useState();
@@ -20,23 +21,34 @@ function RegisterPet() {
     }, [name, weight, species, age, breed]);
 
     function postPet() {
-        api.post(`/pet`, { ...pet, ownerId: 1 });
-        getPets();
-        setComplete(true);
+        if (name) {
+            api.post(`/pet`, { ...pet, ownerId: 1 });
+            getPets();
+            setComplete(true);
+        }
+        if (!name) {
+            setNoName(true);
+        }
     }
 
     return (
         <Container>
             <Header />
             <form>
-                <input
-                    type="text"
-                    placeholder="Nome"
-                    onChange={event => {
-                        setComplete(false);
-                        setName(event.target.value);
-                    }}
-                />
+                <div className="input-container">
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        onChange={event => {
+                            setComplete(false);
+                            setName(event.target.value);
+                            setNoName(false);
+                        }}
+                    />
+                    {noName && (
+                        <span className="error">Informe o nome do pet!</span>
+                    )}
+                </div>
                 <input
                     type="number"
                     placeholder="Peso"
@@ -74,7 +86,9 @@ function RegisterPet() {
                         Cadastrar
                     </button>
                 </div>
-                {complete && <span>{name} foi cadastrado!</span>}
+                {complete && (
+                    <span className="finished">{name} foi cadastrado!</span>
+                )}
             </form>
         </Container>
     );

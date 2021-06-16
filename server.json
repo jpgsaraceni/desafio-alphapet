@@ -1,48 +1,22 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "name": "João",
-      "email": "jpgomes@id.uff.br",
-      "password": "password"
-    }
-  ],
-  "pet": [
-    {
-      "id": 1,
-      "owner-id": 1,
-      "name": "Caramelo",
-      "weight": "30kg",
-      "species": "cachorro",
-      "age": 10,
-      "breed": "SRD",
-      "img": "http://image.com"
-    },
-    {
-      "id": 2,
-      "owner-id": 1,
-      "name": "Doguinho",
-      "weight": "10kg",
-      "species": "cachorro",
-      "age": 5,
-      "breed": "SRD",
-      "img": "http://image.com"
-    },
-    {
-      "name": "arnaldo",
-      "ownerId": 1,
-      "id": 12
-    }
-  ],
-  "appointment": [
-    {
-      "date": "2021-06-30",
-      "time": "09",
-      "name": "passeio",
-      "petName": "Caramelo",
-      "price": 20,
-      "ownerId": 1,
-      "id": 1
-    }
-  ]
+    "pet": [
+        {
+            "id": 1,
+            "name": "Caramelo",
+            "age": "10",
+            "weight": "30kg",
+            "breed": "SRD"
+        }
+    ],
+    "appointment": [
+        {
+            "date": "2021-06-30",
+            "time": "09",
+            "name": "banho",
+            "petName": "Caramelo",
+            "price": 30,
+            "ownerId": 1,
+            "id": 2
+        }
+    ]
 }

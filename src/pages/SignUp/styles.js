@@ -32,4 +32,8 @@ export const Container = styled.form`
         background: none;
         margin-top: 10px;
     }
+
+    span {
+        color: red;
+    }
 `;

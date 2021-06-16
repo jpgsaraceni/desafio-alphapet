@@ -3,14 +3,17 @@ import React from 'react';
 import { AppointmentsProvider } from './AppointmentsProvider';
 import { PetsProvider } from './PetsProvider';
 import { ServiceProvider } from './ServiceProvider';
+import { UserProvider } from './UserProvider';
 
 function AppProvider(props) {
     return (
-        <PetsProvider>
-            <AppointmentsProvider>
-                <ServiceProvider>{props.children}</ServiceProvider>
-            </AppointmentsProvider>
-        </PetsProvider>
+        <UserProvider>
+            <PetsProvider>
+                <AppointmentsProvider>
+                    <ServiceProvider>{props.children}</ServiceProvider>
+                </AppointmentsProvider>
+            </PetsProvider>
+        </UserProvider>
     );
 }
 
