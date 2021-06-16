@@ -82,4 +82,10 @@ export default createGlobalStyle`
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
+
+    .button-container {
+        width: 100%;
+        display: flex;
+        place-content: center;
+    }
 `;

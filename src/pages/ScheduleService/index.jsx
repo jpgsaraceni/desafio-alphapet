@@ -1,25 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { useService } from '../../hooks/useService';
+import { usePets } from '../../hooks/usePets';
 import { useAppointments } from '../../hooks/useAppointments';
 
 import Header from '../../components/Header';
 import { Container } from './styles';
+import api from '../../services/api';
 
 function ScheduleService() {
+    let name;
+    let price;
+    const { id } = useParams();
+    const { pets } = usePets();
     const [date, setDate] = useState('2021-06-30');
     const [time, setTime] = useState('09');
-    const { addAppointment } = useAppointments();
-    const { id } = useParams();
+    const [petName, setPetName] = useState(pets[0].name);
+    const [appointment, setAppointment] = useState();
     const { services } = useService();
     const history = useHistory();
+    const { getAppointments } = useAppointments();
+
+    useEffect(() => {
+        setAppointment({ date, time, name, petName, price });
+    }, [date, time, name, petName, price]);
 
     function navigateToAppointments() {
         history.push(`/appointments`);
     }
 
+    async function addAppointment() {
+        await api.post(`/appointment`, { ...appointment, ownerId: 1 });
+        getAppointments();
+        navigateToAppointments();
+    }
+
     const serviceId = services.findIndex(element => element.id === Number(id));
+    name = services[serviceId].name;
+    price = services[serviceId].price;
 
     return (
         <Container>
@@ -33,8 +52,18 @@ function ScheduleService() {
                     <form>
                         <div className="pet">
                             <p className="pet-label label">Pet: </p>
-                            <select name="pet" className="input-field">
-                                <option value="TEST">TEST</option>
+                            <select
+                                name="pet"
+                                className="input-field"
+                                onChange={event =>
+                                    setPetName(event.target.value)
+                                }
+                            >
+                                {pets.map(pet => (
+                                    <option key={pet.id} value={pet.name}>
+                                        {pet.name}
+                                    </option>
+                                ))}
                             </select>
                         </div>
                         <div className="price">
@@ -57,7 +86,7 @@ function ScheduleService() {
                                     setTime(event.target.value);
                                 }}
                             >
-                                <option value="9" selected>
+                                <option value="9" defaultValue>
                                     9:00
                                 </option>
                                 <option value="10">10:00</option>
@@ -70,14 +99,7 @@ function ScheduleService() {
                                 type="button"
                                 className="schedule-button"
                                 onClick={() => {
-                                    addAppointment(
-                                        services[serviceId].name,
-                                        'auau',
-                                        services[serviceId].price,
-                                        date,
-                                        time,
-                                    );
-                                    navigateToAppointments();
+                                    addAppointment();
                                 }}
                             >
                                 Agendar

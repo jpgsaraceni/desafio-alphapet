@@ -1,30 +1,29 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import api from '../services/api';
 
 export const AppointmentsContext = createContext({});
 
 export const AppointmentsProvider = props => {
-    const [id, setId] = useState(2);
-    const [appointments, setAppointmentsObj] = useState([
-        {
-            id: 1,
-            name: 'Serviço',
-            pet: 'Cachorro',
-            price: '1',
-            date: '2021-06-30',
-            time: '09',
-        },
-    ]);
+    const [appointments, setAppointments] = useState([]);
 
-    function addAppointment(name, pet, price, date, time) {
-        const copyAppointments = appointments;
-        copyAppointments.push({ id, name, pet, price, date, time });
-        setAppointmentsObj(copyAppointments);
-        setId(id + 1);
-    }
+    useEffect(() => {
+        api.get(`/appointment`).then(data => setAppointments(data.data));
+    }, []);
+
+    const getAppointments = () => {
+        api.get(`/appointment`).then(data => setAppointments(data.data));
+    };
+
+    const removeAppointment = appointment => {
+        api.delete(`/appointment/${appointment.id}`);
+        getAppointments();
+    };
 
     return (
-        <AppointmentsContext.Provider value={{ appointments, addAppointment }}>
+        <AppointmentsContext.Provider
+            value={{ appointments, getAppointments, removeAppointment }}
+        >
             {props.children}
         </AppointmentsContext.Provider>
     );

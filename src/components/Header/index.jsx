@@ -22,6 +22,10 @@ function Header() {
     function navigateToAppointments() {
         history.push(`/appointments`);
     }
+
+    function navigateToPets() {
+        history.push(`/pets`);
+    }
     // const navigateToLogIn = useNavigate();
 
     return (
@@ -47,7 +51,11 @@ function Header() {
                 >
                     Meus agendamentos
                 </button>
-                <button type="button" className="navigate-button">
+                <button
+                    type="button"
+                    className="navigate-button"
+                    onClick={() => navigateToPets()}
+                >
                     Meus pets
                 </button>
                 <button

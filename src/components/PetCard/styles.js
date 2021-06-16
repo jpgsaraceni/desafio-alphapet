@@ -9,13 +9,10 @@ export const Container = styled.div`
     border-radius: 5px;
     padding: 10px 20px;
 
-    .service {
-        width: 500px;
-    }
-
     h1 {
         text-transform: capitalize;
         margin: 0 auto;
+        width: 300px;
         text-align: start;
     }
 
@@ -25,8 +22,8 @@ export const Container = styled.div`
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
         height: 100px;
-        align-items: space-start;
         width: 100%;
 
         .tag {
@@ -34,7 +31,7 @@ export const Container = styled.div`
             text-align: start;
         }
         p {
-            width: fit-content;
+            width: 40%;
         }
     }
 

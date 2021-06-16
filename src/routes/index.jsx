@@ -7,6 +7,8 @@ import RedefinePassword from '../pages/RedefinePassword';
 import ScheduleService from '../pages/ScheduleService';
 import SignUp from '../pages/SignUp';
 import AppointmentsList from '../pages/AppointmentsList';
+import PetList from '../pages/PetList';
+import RegisterPet from '../pages/RegisterPet';
 
 function Routes() {
     return (
@@ -20,6 +22,8 @@ function Routes() {
                 <Route path="/home" component={Home} />
                 <Route path="/schedule/:id" component={ScheduleService} />
                 <Route path="/appointments" component={AppointmentsList} />
+                <Route path="/pets" component={PetList} />
+                <Route path="/registerpet" component={RegisterPet} />
             </Switch>
         </BrowserRouter>
     );

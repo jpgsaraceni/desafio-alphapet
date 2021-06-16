@@ -86,4 +86,8 @@ export const Container = styled.div`
         border-radius: 5px;
         justify-content: center;
     }
+
+    option {
+        text-transform: capitalize;
+    }
 `;
