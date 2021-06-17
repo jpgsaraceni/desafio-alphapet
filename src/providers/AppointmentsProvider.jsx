@@ -5,6 +5,7 @@ import api from '../services/api';
 export const AppointmentsContext = createContext({});
 
 export const AppointmentsProvider = props => {
+    // api requests and responses for the scheduled appointments.
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {

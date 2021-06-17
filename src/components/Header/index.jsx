@@ -5,10 +5,9 @@ import { Container } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 import logout from '../../assets/images/logout.svg';
-// import { useNavigate } from '../../hooks/useNavigate';
 
 function Header() {
-    // use props to change remove cursor: pointer when on the page the button takes to.
+    // header with logo and navigation buttons. Rendered in all pages after login.
     const history = useHistory();
 
     function navigateToHome() {
@@ -26,7 +25,6 @@ function Header() {
     function navigateToPets() {
         history.push(`/pets`);
     }
-    // const navigateToLogIn = useNavigate();
 
     return (
         <Container>

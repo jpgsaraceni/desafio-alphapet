@@ -1,22 +1,10 @@
 {
-    "pet": [
-        {
-            "id": 1,
-            "name": "Caramelo",
-            "age": "10",
-            "weight": "30kg",
-            "breed": "SRD"
-        }
-    ],
-    "appointment": [
-        {
-            "date": "2021-06-30",
-            "time": "09",
-            "name": "banho",
-            "petName": "Caramelo",
-            "price": 30,
-            "ownerId": 1,
-            "id": 2
-        }
-    ]
+  "pet": [
+    {
+      "name": "Dog",
+      "ownerId": 1,
+      "id": 1
+    }
+  ],
+  "appointment": []
 }

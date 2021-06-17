@@ -16,7 +16,7 @@ function ScheduleService() {
     const { pets } = usePets();
     const [date, setDate] = useState('2021-06-30');
     const [time, setTime] = useState('09');
-    const [petName, setPetName] = useState(pets[0].name);
+    const [petName, setPetName] = useState('');
     const [appointment, setAppointment] = useState();
     const { services } = useService();
     const history = useHistory();

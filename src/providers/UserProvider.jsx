@@ -3,11 +3,11 @@ import React, { createContext } from 'react';
 
 export const UserContext = createContext({});
 
-// import { Container } from './styles';
-
 export const UserProvider = props => {
+    // users can be added only in each session. They are not on the server (json.server for development), local storage or cookies.
     const users = [
         {
+            // test user only for development.
             id: 1,
             name: 'test',
             password: 'password',

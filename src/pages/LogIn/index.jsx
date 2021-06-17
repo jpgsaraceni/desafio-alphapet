@@ -9,20 +9,26 @@ import { Container } from './styles';
 import logo from '../../assets/images/logo.svg';
 
 function LogIn() {
+    // states that receive the values of the input fields. Set with onChange events.
     const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    // when these states are set to true, an error message appears below the input fields. Set true when validation fails and false with onChange events.
     const [noEmail, setNoEmail] = useState(false);
     const [noPassword, setNoPassword] = useState(false);
-    const [password, setPassword] = useState();
     const [showInvalidUserMessage, setShowInvalidUserMessage] = useState(false);
-    const { users } = useUsers();
 
+    // receives the list of users from the provider.
+    const { users } = useUsers();
     const history = useHistory();
 
     const navigateToHome = useCallback(() => {
+        // checks if the email and password are correct.
         let validUsers = false;
         users.forEach((user) => {
             if (user.email === email) {
                 if (user.password === password) {
+                    // sets the condition to navigate to home to true.
                     validUsers = true;
                 }
             }

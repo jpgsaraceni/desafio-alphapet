@@ -5,6 +5,7 @@ import api from '../services/api';
 export const PetsContext = createContext({});
 
 export const PetsProvider = props => {
+    // api requests and responses for the list and info of registered pets.
     const [pets, setPets] = useState([]);
 
     useEffect(() => {

@@ -4,6 +4,8 @@ import GlobalStyle from './styles/GlobalStyle';
 import AppProvider from './providers';
 import Routes from './routes';
 
+// wraps the provider around the application, and calls the router and global styles.
+
 function App() {
     return (
         <AppProvider>

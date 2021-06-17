@@ -6,6 +6,7 @@ import { ServiceProvider } from './ServiceProvider';
 import { UserProvider } from './UserProvider';
 
 function AppProvider(props) {
+    // nests all the providers in the app.
     return (
         <UserProvider>
             <PetsProvider>

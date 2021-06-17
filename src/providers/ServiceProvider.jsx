@@ -8,6 +8,7 @@ import walk from '../assets/images/walk.png';
 export const ServiceContext = createContext({});
 
 export const ServiceProvider = props => {
+    // the services are stored in this provider, and not in the server, because they are static.
     const services = [
         {
             id: 1,
